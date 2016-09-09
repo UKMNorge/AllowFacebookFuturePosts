@@ -11,8 +11,7 @@ Author URI: http://www.ukm.no
 add_filter( 'pre_get_posts', 'UKM_allow_facebook_peak' );
 
 function is_facebook() {
-    return  strpos($_SERVER["HTTP_USER_AGENT"], "facebookexternalhit/") !== false || 
-            strpos($_SERVER["HTTP_USER_AGENT"], "Facebot") !== false;
+    return !( strpos($_SERVER["HTTP_USER_AGENT"], "facebookexternalhit/") === false && strpos($_SERVER["HTTP_USER_AGENT"], "Facebot") === false) ;
 }
 
 /**
